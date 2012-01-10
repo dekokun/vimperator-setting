@@ -1,0 +1,126 @@
+" vim: set ft=vim:
+" retlet .vimperatorrc
+" for Vimperator 1.2pre
+
+
+" 基本設定
+"+----------------------------------------------------------------------------------------+
+" ブラウザのタイトル
+set titlestring=Firefox
+" 検索語のハイライト
+set hlsearch
+" ビープを鳴らさない
+set visualbell
+"ビジュアルレベルを無効化
+highlight Bell display:none;
+" ヒントモードを英字にする
+set hintchars=ifjklasdhguonmerwc
+" ヒントモードの英字は大文字に
+hi Hint z-index:5000; font-size:14px; color:white; background-color:red; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
+"タブオープンやオープンで何を表示するか
+set complete=lsSt
+" twitterとか開いたときにinput要素にfocusを奪われないようにする
+set focuscontent
+" !でcssの表示切り替え
+noremap <silent> ! :set invusermode<CR>
+" インサートモードの時に<C-i>でgvimを使って編集できる
+if has('win32')
+    set editor='gvim -f'
+else
+    set editor='/Applications/MacVim.app/Contents/MacOS/MacVim'
+endif
+
+
+set history=1000
+set messages=1000
+
+" コマンドモード時に強制的にIMEをオフに
+:style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
+" キーマップ設定
+"+----------------------------------------------------------------------------------------+
+"j/kの移動量を5倍に
+noremap j 5<C-e>
+noremap k 5<C-y>
+" 選択文字列のgoogle検索を <C-g> に割り当て
+noremap <C-g> YP
+
+" h/l や ← → でタブ移動
+noremap h <C-p>
+noremap l <C-n>
+
+" .vimperatorrcを再読み込み(:restartしなくてもいい)
+noremap <C-r> :mapc<CR>:cmapc<CR>:imapc<CR>:so ~/.vimperatorrc<CR>
+
+" インサートモードにてemacs ライクな動きを行う
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-m> <Enter>
+
+" Shift + ← → で現在のタブの位置変更
+noremap <S-Right> :tabmove! +1<CR>
+noremap <S-Left>  :tabmove! -1<CR>
+
+"<A-r>でFirefoxを再起動
+noremap <A-r> :restart<CR>
+"<A-h>でヘルプを表示
+noremap <A-h> :help<CR>
+
+" ==VimperatorColorScheme==
+" name: Sweets based on 'sweets_snaka'
+" ==/VimperatorColorScheme==
+
+hi Hint font-family: monospace; font-size: 15px; font-weight: normal; color: lightyellow; background-color: black; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 5px 0px 5px; text-transform: uppercase;
+hi HintElem background-color: pink; color: black;
+hi HintActive background-color: hotpink; color: white;
+
+" 影(重かったらコメントアウトねっ！)
+" hi -append Hint background-color: rgba(28, 28, 28, 0.7); border: 1px solid #1c1c1c; -moz-border-radius: 4px; -moz-box-shadow: 0px 0px 1px black; text-shadow: 1px 1px 2px black;
+" hi -append HintElem text-decoration: none; -moz-border-radius: 4px; -moz-box-shadow: 0 0 2px #0c0c0c;
+" hi -append HintActive text-decoration: none; -moz-border-radius: 4px; -moz-box-shadow: 0 0 2px #0c0c0c;
+
+hi StatusLine color: CornflowerBlue; background: #000; font-weight: normal; font-size: 12pt;
+hi StatusLineBroken color: black; background: #ffa0a0; font-weight: normal; font-size: 12pt;
+hi StatusLineExtended color: black; background: #a0ffa0; font-weight: normal; font-size: 12pt;
+hi StatusLineSecure color: black; background: #a0a0ff; font-weight: normal; font-size: 12pt;
+
+hi Normal color: LightYellow; background: Black; font-size: 12pt; opacity: 0.7;
+hi CmdLine color: LightYellow; background: Black; font-size: 14pt;
+hi InfoMsg color: LightYellow; background: Black; font-size: 12pt;
+hi ModeMsg color: LightYellow; background: Black; font-size: 12pt;
+hi MoreMsg color: LimeGreen; background: Black;
+hi LineNr color: DeepPink; background: Black; font-size: 12pt;
+hi Question color: Yellow; background: Black; font-size: 12pt;
+hi WarningMsg color: DeepPink; background: Black; font-size: 12pt;
+hi ErrorMsg color: white; background: red; font-size: 12pt;
+hi NonText background: #000;
+hi Null color: CornflowerBlue;
+hi Tag color: CornflowerBlue;
+hi Number color: CornflowerBlue;
+
+hi CompTitle background: DarkOrchid;
+hi CompTitle>* color: white; border-bottom: 1px solid #3c3c3f; padding: 1px 0.5ex; text-shadow: 1px 1px 0px #0c0c0c;
+hi CompItem[selected] color: cyan; background: #333;
+hi CompDesc color: Pink;
+
+hi Title color: white;
+hi Indicator color: DodgerBlue;
+hi String color: Orchid;
+hi Number color: Orchid;
+hi Object color: Khaki;
+hi Function color: SkyBlue;
+hi URL color: LightGreen;
+
+" feedsomekeys_3.js
+" 以下キーは透過させる
+command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+lazy fmaps -u='mail\.google\.com/mail' c / j k n p o u e x s r a # [ ] ? gi gs gt gd ga gc
+lazy fmaps -u='mail\.google\.com/mail/.*/[0-9a-f]+$' c / j,n k,p n,j p,k o u e x s r a # [ ] ? gi gs gt gd ga gc
+lazy fmaps -u='www\.google\.co\.jp/reader' -events=vkeypress j k n p m s v A r S N P X O gh ga gs gt gu u / ? J K
+lazy fmaps -u='(fastladder|livedoor)\.com/reader' j k s a p o v c i,p <Space> <S-Space> z b < > q w e,g
+lazy fmaps -u='https?://www\.rememberthemilk\.com/home/' j k m i c t ? d F,f G,g S,s L,l Y,y H,h M,m <Del> <C-S-Left> <C-S-Right>
+lazy fmaps -u='http://code.google.com/p/vimperator-labs/issues/list' o j k
+lazy fmaps -u='http://code.google.com/p/vimperator-labs/issues/detail' u
+echo ".vimperatorrc sourced"
