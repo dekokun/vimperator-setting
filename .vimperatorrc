@@ -30,6 +30,7 @@ else
     set editor='/Applications/MacVim.app/Contents/MacOS/MacVim'
 endif
 
+let mapleader = ' '
 
 set history=1000
 set messages=1000
@@ -58,6 +59,14 @@ inoremap <C-b> <Left>
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <C-m> <Enter>
+
+" ,bにてブックマーク検索
+com! -complete=bookmark -nargs=+ ob :o <args>
+com! -complete=history -nargs=+ oh :o <args>
+com! -complete=search -nargs=+ os :o <args>
+map ,b :ob
+map ,s :os
+map ,f :of
 
 " Shift + ← → で現在のタブの位置変更
 noremap <S-Right> :tabmove! +1<CR>
