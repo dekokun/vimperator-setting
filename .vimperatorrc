@@ -30,8 +30,6 @@ else
     set editor='/Applications/MacVim.app/Contents/MacOS/MacVim'
 endif
 
-let mapleader = ' '
-
 set history=1000
 set messages=1000
 
@@ -63,19 +61,12 @@ inoremap <C-m> <Enter>
 " ,bにてブックマーク検索
 com! -complete=bookmark -nargs=+ ob :o <args>
 com! -complete=history -nargs=+ oh :o <args>
-com! -complete=search -nargs=+ os :o <args>
 map ,b :ob
-map ,s :os
-map ,f :of
+map ,h :oh
 
 " Shift + ← → で現在のタブの位置変更
 noremap <S-Right> :tabmove! +1<CR>
 noremap <S-Left>  :tabmove! -1<CR>
-
-"<A-r>でFirefoxを再起動
-noremap <A-r> :restart<CR>
-"<A-h>でヘルプを表示
-noremap <A-h> :help<CR>
 
 " ==VimperatorColorScheme==
 " name: Sweets based on 'sweets_snaka'
@@ -86,9 +77,9 @@ hi HintElem background-color: pink; color: black;
 hi HintActive background-color: hotpink; color: white;
 
 " 影(重かったらコメントアウトねっ！)
-" hi -append Hint background-color: rgba(28, 28, 28, 0.7); border: 1px solid #1c1c1c; -moz-border-radius: 4px; -moz-box-shadow: 0px 0px 1px black; text-shadow: 1px 1px 2px black;
-" hi -append HintElem text-decoration: none; -moz-border-radius: 4px; -moz-box-shadow: 0 0 2px #0c0c0c;
-" hi -append HintActive text-decoration: none; -moz-border-radius: 4px; -moz-box-shadow: 0 0 2px #0c0c0c;
+hi -append Hint background-color: rgba(28, 28, 28, 0.7); border: 1px solid #1c1c1c; -moz-border-radius: 4px; -moz-box-shadow: 0px 0px 1px black; text-shadow: 1px 1px 2px black;
+hi -append HintElem text-decoration: none; -moz-border-radius: 4px; -moz-box-shadow: 0 0 2px #0c0c0c;
+hi -append HintActive text-decoration: none; -moz-border-radius: 4px; -moz-box-shadow: 0 0 2px #0c0c0c;
 
 hi StatusLine color: CornflowerBlue; background: #000; font-weight: normal; font-size: 12pt;
 hi StatusLineBroken color: black; background: #ffa0a0; font-weight: normal; font-size: 12pt;
