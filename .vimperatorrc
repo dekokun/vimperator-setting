@@ -48,12 +48,6 @@ set complete=lsSt
 set focuscontent
 " !でcssの表示切り替え
 noremap <silent> ! :set invusermode<CR>
-" インサートモードの時に<C-i>でgvimを使って編集できる
-if has('win32')
-    set editor='gvim -f'
-else
-    set editor='/Applications/MacVim.app/Contents/MacOS/MacVim'
-endif
 
 set history=1000
 set messages=1000
