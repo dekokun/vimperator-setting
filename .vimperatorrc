@@ -83,6 +83,8 @@ com! -complete=history -nargs=+ oh :o <args>
 map ,b :ob
 map ,h :oh
 
+qmark b javascript:(function(){var%20d=(new%20Date);var%20s=document.createElement('script');s.charset='UTF-8';s.src='http://b.hatena.ne.jp/js/Hatena/Bookmark/let.js?'+d.getFullYear()+d.getMonth()+d.getDate();(document.getElementsByTagName('head')[0]||document.body).appendChild(s);})();
+
 " Shift + ← → で現在のタブの位置変更
 noremap <S-Right> :tabmove! +1<CR>
 noremap <S-Left>  :tabmove! -1<CR>
