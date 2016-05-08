@@ -1,0 +1,1 @@
+vimperator-plugins/pluginManager.js
