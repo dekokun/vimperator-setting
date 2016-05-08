@@ -1,1 +1,1 @@
-vimperator-plugins/imageextender.js
+../vimperator-plugins/ime_controller.js

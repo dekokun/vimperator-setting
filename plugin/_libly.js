@@ -1,1 +1,1 @@
-vimperator-plugins/_libly.js
+../vimperator-plugins/_libly.js

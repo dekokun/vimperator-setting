@@ -1,1 +1,1 @@
-vimperator-plugins/migemo_hint.js
+../vimperator-plugins/migemo_hint.js

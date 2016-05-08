@@ -1,1 +1,1 @@
-vimperator-plugins/pluginManager.js
+../vimperator-plugins/pluginManager.js
