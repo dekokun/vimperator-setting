@@ -25,6 +25,8 @@ noremap <silent> ! :set invusermode<CR>
 
 set history=1000
 set messages=1000
+" verboseレベルを設定し，全てのechoerr/echomsgの履歴を見られるようにする(デフォルトは0)
+set verbose=15
 
 " コマンドモード時に強制的にIMEをオフに
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
