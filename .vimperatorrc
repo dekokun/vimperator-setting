@@ -2,32 +2,6 @@
 " retlet .vimperatorrc
 " for Vimperator 1.2pre
 
-javascript <<EOM
-// for liberator.echo()
-let (echo_old = liberator.echo) {
-    liberator.echo = function(str, flags) {
-        liberator.log("echo: " + str, 0);
-        return echo_old(str, flags);
-    }
-}
-
-// for liberator.echoerr()
-let (echoerr_old = liberator.echoerr) {
-    liberator.echoerr = function(str, flags) {
-        liberator.log("echoerr: " + str, 0);
-        return echoerr_old(str, flags);
-    }
-}
-
-// for liberator.echomsg() (only for Vimperator 2.0pre or later)
-let (echomsg_old = liberator.echomsg) {
-    liberator.echomsg = function(str, flags) {
-        liberator.log("echomsg: " + str, 0);
-        return echomsg_old(str, flags);
-    }
-}
-EOM
-
 " 基本設定
 "+----------------------------------------------------------------------------------------+
 " ブラウザのタイトル
