@@ -1,1 +1,0 @@
-../vimperator-plugins/migemo_hint.js
