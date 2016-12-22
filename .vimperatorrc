@@ -2,8 +2,8 @@
 " retlet .vimperatorrc
 " for Vimperator 1.2pre
 
-" firefoxの49対応でcompletionが壊れたworkarround。vimperatorのverupで不要になるはず
-
+" 最初はfirefoxでurlの絞込ができなくなったことから追加したが、
+" firefoxに対応された後もこれがないとやけにurlの絞込が遅くなるためfirefoxのバージョン関係なく有効にしておく
 " https://github.com/vimperator/vimperator-labs/issues/590#issuecomment-248833125
 " js
 services.services.autoCompleteSearch.class_="@mozilla.org/autocomplete/search;1?name=unifiedcomplete"
